@@ -2,8 +2,8 @@ package com.nisum.user_management.application.handler;
 
 import com.nisum.user_management.domain.model.UserRequest;
 import com.nisum.user_management.domain.service.UpdateUserService;
+import com.nisum.user_management.infrastructure.controller.dto.CreateUserResponseDto;
 import com.nisum.user_management.infrastructure.controller.dto.UserRequestDto;
-import com.nisum.user_management.infrastructure.controller.dto.CompleteUserResponseDto;
 import com.nisum.user_management.infrastructure.controller.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class UpdateUserHandler {
         this.mapper = mapper;
     }
 
-    public CompleteUserResponseDto execute(UUID id, UserRequestDto userRequestDto) {
+    public CreateUserResponseDto execute(UUID id, UserRequestDto userRequestDto) {
         UserRequest userRequest = mapper.requestToModel(userRequestDto);
         return mapper.responseToCompleteDto(service.execute(id, userRequest));
     }

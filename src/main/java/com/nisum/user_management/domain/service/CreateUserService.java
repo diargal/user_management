@@ -26,7 +26,7 @@ public class CreateUserService {
         userRequest.setCreated(dateTimeNow);
         userRequest.setLastLogin(dateTimeNow);
         userRequest.setModified(dateTimeNow);
-        userRequest.setIsactive(Boolean.TRUE);
+        userRequest.setActive(Boolean.TRUE);
         userRequest.setRoles(Set.of(RoleEnum.USER));
         UserResponse userResponse = createUserRepository.execute(userRequest);
         LoginResponse loginResponse = authRepository.execute(loginRequest);

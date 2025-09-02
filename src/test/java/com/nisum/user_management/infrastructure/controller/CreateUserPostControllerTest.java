@@ -71,8 +71,6 @@ class CreateUserPostControllerTest {
                 )
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(name))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.email").value(userEmail))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.isactive").value(Boolean.TRUE))
                 .andDo(print());
     }

@@ -1,8 +1,8 @@
 package com.nisum.user_management.infrastructure.controller;
 
 import com.nisum.user_management.application.handler.CreateUserHandler;
+import com.nisum.user_management.infrastructure.controller.dto.CreateUserResponseDto;
 import com.nisum.user_management.infrastructure.controller.dto.UserRequestDto;
-import com.nisum.user_management.infrastructure.controller.dto.CompleteUserResponseDto;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,8 +20,8 @@ public class CreateUserPostController {
     private final CreateUserHandler createUserHandler;
 
     @PostMapping
-    public ResponseEntity<CompleteUserResponseDto> createUser(@Valid @RequestBody UserRequestDto userRequestDto) {
-        CompleteUserResponseDto response = createUserHandler.execute(userRequestDto);
+    public ResponseEntity<CreateUserResponseDto> createUser(@Valid @RequestBody UserRequestDto userRequestDto) {
+        CreateUserResponseDto response = createUserHandler.execute(userRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

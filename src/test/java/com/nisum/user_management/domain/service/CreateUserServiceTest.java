@@ -48,7 +48,7 @@ class CreateUserServiceTest {
         userResponse.setCreated(LocalDateTime.now());
         userResponse.setLastLogin(LocalDateTime.now());
         userResponse.setModified(LocalDateTime.now());
-        userResponse.setIsactive(true);
+        userResponse.setActive(true);
 
         LoginResponse loginResponse = new LoginResponse("testToken");
 
@@ -62,7 +62,7 @@ class CreateUserServiceTest {
         assertNotNull(result.getCreated());
         assertNotNull(result.getLastLogin());
         assertNotNull(result.getModified());
-        assertTrue(result.isIsactive());
+        assertTrue(result.isActive());
     }
 
     @Test

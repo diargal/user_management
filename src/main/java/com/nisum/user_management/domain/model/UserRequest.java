@@ -20,7 +20,7 @@ public class UserRequest {
     private LocalDateTime created;
     private LocalDateTime modified;
     private LocalDateTime lastLogin;
-    private boolean isactive;
+    private boolean isActive;
     private Set<RoleEnum> roles;
 
     public UserRequest(String name, String email, String password, List<Phone> phones) {

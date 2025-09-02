@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     created TIMESTAMP,
     modified TIMESTAMP,
     last_login TIMESTAMP,
-    isactive BOOLEAN DEFAULT true
+    is_active BOOLEAN DEFAULT true
 );
 
 CREATE TABLE IF NOT EXISTS phones (

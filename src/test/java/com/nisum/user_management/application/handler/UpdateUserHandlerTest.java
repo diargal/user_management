@@ -3,7 +3,7 @@ package com.nisum.user_management.application.handler;
 import com.nisum.user_management.domain.model.UserRequest;
 import com.nisum.user_management.domain.model.UserResponse;
 import com.nisum.user_management.domain.service.UpdateUserService;
-import com.nisum.user_management.infrastructure.controller.dto.CompleteUserResponseDto;
+import com.nisum.user_management.infrastructure.controller.dto.CreateUserResponseDto;
 import com.nisum.user_management.infrastructure.controller.dto.UserRequestDto;
 import com.nisum.user_management.infrastructure.controller.mapper.UserMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,19 +42,19 @@ class UpdateUserHandlerTest {
         UserRequestDto userRequestDto = new UserRequestDto();
         UserRequest userRequest = new UserRequest();
         UserResponse userResponse = new UserResponse();
-        CompleteUserResponseDto completeUserResponseDto = new CompleteUserResponseDto();
+        CreateUserResponseDto createUserResponseDto = new CreateUserResponseDto();
 
         when(mapper.requestToModel(any(UserRequestDto.class))).thenReturn(userRequest);
         when(service.execute(any(UUID.class), any(UserRequest.class))).thenReturn(userResponse);
-        when(mapper.responseToCompleteDto(any(UserResponse.class))).thenReturn(completeUserResponseDto);
+        when(mapper.responseToCompleteDto(any(UserResponse.class))).thenReturn(createUserResponseDto);
 
         // Act
-        CompleteUserResponseDto result = handler.execute(userId, userRequestDto);
+        CreateUserResponseDto result = handler.execute(userId, userRequestDto);
 
         // Assert
         verify(mapper).requestToModel(userRequestDto);
         verify(service).execute(userId, userRequest);
         verify(mapper).responseToCompleteDto(userResponse);
-        assertEquals(completeUserResponseDto, result);
+        assertEquals(createUserResponseDto, result);
     }
 }

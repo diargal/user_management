@@ -3,7 +3,7 @@ package com.nisum.user_management.application.handler;
 import com.nisum.user_management.domain.model.UserRequest;
 import com.nisum.user_management.domain.model.UserResponse;
 import com.nisum.user_management.domain.service.CreateUserService;
-import com.nisum.user_management.infrastructure.controller.dto.CompleteUserResponseDto;
+import com.nisum.user_management.infrastructure.controller.dto.CreateUserResponseDto;
 import com.nisum.user_management.infrastructure.controller.dto.UserRequestDto;
 import com.nisum.user_management.infrastructure.controller.mapper.UserMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,21 +47,21 @@ class CreateUserHandlerTest {
         userRequest.setPassword("encodedPassword");
         UserResponse userResponse = new UserResponse();
 
-        CompleteUserResponseDto completeUserResponseDto = new CompleteUserResponseDto();
+        CreateUserResponseDto createUserResponseDto = new CreateUserResponseDto();
 
         when(mapper.requestToModel(any(UserRequestDto.class))).thenReturn(userRequest);
         when(passwordEncoder.encode("plainPassword")).thenReturn("encodedPassword");
         when(service.execute(any(UserRequest.class))).thenReturn(userResponse);
-        when(mapper.responseToCompleteDto(any(UserResponse.class))).thenReturn(completeUserResponseDto);
+        when(mapper.responseToCompleteDto(any(UserResponse.class))).thenReturn(createUserResponseDto);
 
         // Act
-        CompleteUserResponseDto result = handler.execute(userRequestDto);
+        CreateUserResponseDto result = handler.execute(userRequestDto);
 
         // Assert
         verify(passwordEncoder).encode("plainPassword");
         verify(mapper).requestToModel(userRequestDto);
         verify(service).execute(userRequest);
         verify(mapper).responseToCompleteDto(userResponse);
-        assertEquals(completeUserResponseDto, result);
+        assertEquals(createUserResponseDto, result);
     }
 }

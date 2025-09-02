@@ -8,6 +8,8 @@ public interface UserRequestUtil {
     String MESSAGE_EXPRESSION_PASSWORD = "La contraseña debe tener al menos 7 caracteres, contener al menos una " +
             "letra mayúscula, una minúscula, un número y un carácter especial.";
     String MESSAGE = "mensaje";
+    String LAST_LOGIN = "last_login";
+    String IS_ACTIVE = "isactive";
     String CITY_CODE = "citycode";
     String COUNTRY_CODE = "contrycode";
     String CITY_CODE_EMPTY = "City code es obligatorio";

@@ -47,7 +47,7 @@ public class UserEntity {
     private LocalDateTime modified;
     private LocalDateTime lastLogin;
     @Getter
-    private boolean isactive;
+    private boolean isActive;
     @ManyToMany(fetch = FetchType.EAGER,
             targetEntity = RoleEntity.class,
             cascade = CascadeType.PERSIST)
