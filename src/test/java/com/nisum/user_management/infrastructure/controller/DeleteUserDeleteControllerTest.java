@@ -37,7 +37,7 @@ class DeleteUserDeleteControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/users/" + id)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.status().isNoContent())
                 .andDo(print());
     }
 
